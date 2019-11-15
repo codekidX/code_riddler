@@ -1,0 +1,27 @@
+{
+  "name": "coderiddler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon server.js -w assets views",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.2.4",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7",
+    "multer": "^1.4.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/mongoose": "^5.5.23",
+    "inquirer": "^7.0.0"
+  }
+}

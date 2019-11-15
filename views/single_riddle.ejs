@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include head %>
+  </head>
+  <body>
+    <% include nav %>
+    <div class="container">
+      <% include questionmark %> <% include banner_riddles %>
+
+      <div class="row justify-content-center text-center">
+        <h4 class="cr-padding-1 font-mine color-crtext"><%= riddle.title %></h4>
+      </div>
+
+      <div class="row justify-content-center text-center">
+        <p class="font-mine color-crtext">
+          <%= riddle.riddle%>
+        </p>
+      </div>
+
+      <%if (riddle.published_by_me) {%>
+      <div
+        class="row justify-content-center font-mine color-crtext text-center"
+      >
+        <h6 class="cr-blue">
+          The riddler doesn't need to solve his own riddle!
+        </h6>
+      </div>
+      <% } else if (riddle.is_solved) { %>
+      <div
+        class="row justify-content-center font-mine color-crtext text-center"
+      >
+        <h6 class="cr-blue">
+          Revisiting a riddle is like cherishing a memory!
+        </h6>
+      </div>
+      <% } else { %>
+      <div class="row justify-content-center">
+        <div class="row justify-content-center cr-padding-t-2">
+          <input
+            id="riddleAnswer"
+            type="text"
+            class="cr-textfield"
+            placeholder="answer"
+          />
+        </div>
+      </div>
+
+      <div class="row justify-content-center cr-padding-1">
+        <button
+          id="submitAnswerButton"
+          class="cr-button-small color-crtext font-mine"
+          onclick="callSubmitAnswer('<%= riddle._id%>')"
+        >
+          Submit
+        </button>
+      </div>
+      <% }%> <% include modals %> <% include footer %>
+    </div>
+
+    <!-- correctAnswer model -->
+
+    <div
+      class="modal fade"
+      id="correctAnswerModel"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bull's EYE</h5>
+          </div>
+          <div class="modal-body">
+            <p>
+              That is correct. Here is your reward
+              <img src="<%= stylesPath%>static/coin.png" class="img-24" /> <%=
+              riddle.worth%>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="cr-button-small-main"
+              data-dismiss="modal"
+              onclick="changeLocation('/riddles')"
+            >
+              Wohoo !
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include head %>
+  </head>
+  <body>
+    
+    <div class="container">
+        <% include nav %>
+        <% include questionmark %>
+        <div class="row justify-content-center cr-padding-1">
+            <input id="riddleName" type="text" class="cr-textfield" placeholder="Name your riddle"></input>
+        </div>
+        <div class="row justify-content-center">
+            <textarea id="riddleContent" class="cr-textfield width-5" placeholder="Enter riddle here"></textarea>
+        </div>
+        <div class="row justify-content-center cr-padding-t-2">
+            <input id="riddleAnswer" type="text" class="cr-textfield" placeholder="answers"></input>
+        </div>
+        <div class="row alpha-50 justify-content-center text-center">
+            <p class="color-crtext font-mine cr-padding-t-05 em-0-8">* If there have multiple answers, you can separate your answers by comma. The answers will not be case-sensitive and .lowercase() will be applied while evaluatiing.</p>
+        </div>
+        <div class="row justify-content-center cr-padding-1">
+                  <button id="submitRiddleButton" class="cr-button-small color-crtext font-mine">
+                    Submit
+                  </button>
+        </div>
+    </div>
+    <% include modals %>
+    <% include footer %>
+  </body>
+</html>

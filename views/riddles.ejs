@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include head %>
+  </head>
+  <body>
+    <% include nav %>
+    <div class="container">
+      <% include questionmark %> <% include banner_riddles %> <%
+      riddles.forEach((riddle, index) => { %>
+      <div class="row justify-content-center mar-t-1">
+        <div class="card font-mine cr-riddle-card color-crtext">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a class="cr-link-title" href="riddle/<%= riddle._id%>"
+                >#<%= index + 1 %> - <%= riddle.title %></a
+              >
+            </h5>
+            <a
+              href="/profile/<%= riddle.publisher_id%>"
+              class="cr-alphalink color-crtext"
+              ><%= riddle.publisher_name%></a
+            >
+            <div class="card-footer d-flex justify-content-end">
+              <%if (!riddle.published_by_me) {%> <% if (riddle.is_solved) { %>
+              <button class="cr-button-small-main" disabled>Solved</button>
+              <% } else { %>
+              <button
+                class="cr-button-small color-crtext"
+                onclick="changeLocation('riddle/<%= riddle._id%>')"
+              >
+                Solve
+              </button>
+              <% } %> <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }); %> <% include footer %>
+    </div>
+  </body>
+</html>

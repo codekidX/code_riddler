@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include head %>
+  </head>
+  <body>
+    <% include nav %>
+    <div class="container font-mine cr-padding-t-10">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="progile-tab"
+            data-toggle="tab"
+            href="#profile"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="true"
+            >Profile</a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link"
+            id="support-tab"
+            data-toggle="tab"
+            href="#support"
+            role="tab"
+            aria-controls="support"
+            aria-selected="false"
+            >Support</a
+          >
+        </li> -->
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane show active color-crtext font-mine cr-padding-main"
+          id="profile"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+          <div class="container">
+              <div class="row">
+                  <div class="column-sm-4 cr-padding-1">
+                      <img src="<%= profileUser.ghInfo.avatar_url %>" class="img-200 profile-img" />
+                  </div>
+                  <div class="column-sm-8 cr-padding-1 flex-column em-1-3">
+                      <p>Name - <span class="cr-blue"><%= profileUser.username %></span></p>
+                      <p>Riddles Solved - <span class="cr-blue"><%= profileUser.solved_riddles.length %></span></p>
+                      <p>Riddles Published - <span class="cr-blue"><%= riddlesPublishedByMe %></span></p>
+                      <p>Points - <span class="cr-blue"><%= profileUser.points %></span></p>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- <div
+          class="tab-pane color-crtext font-mine"
+          id="support"
+          role="tabpanel"
+          aria-labelledby="support-tab"
+        >
+          Support page this is
+        </div> -->
+      </div>
+      <% include footer %>
+    </div>
+  </body>
+</html>

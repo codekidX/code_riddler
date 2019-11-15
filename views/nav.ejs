@@ -1,0 +1,41 @@
+<% if (!home) { %>
+<div class="view-top-left d-flex flex-row">
+  <button
+    onclick="changeLocation('/')"
+    class="cr-button-small color-crtext font-mine"
+  >
+    Home
+  </button>
+  <% if (pageId == 'single_riddle') {%>
+  <button
+    onclick="changeLocation('/riddles')"
+    class="cr-button-small color-crtext font-mine mar-l-1"
+  >
+    Riddles
+  </button>
+  <% }%>
+</div>
+
+<% } %> <%if (loggedIn) {%>
+<div class="login-button d-flex flex-row">
+    <!-- <input
+      id="searchUsers"
+      type="text"
+      class="cr-textfield"
+      placeholder="Search"
+    /> -->
+  <span class="color-crtext font-mine mar-l-1 mar-t-0-5 justify-content-center"
+    ><img
+      id="coin"
+      class="img-24"
+      src="<%= stylesPath%>static/coin.png"
+    />&nbsp;<%= points %></span
+  >
+  <button
+    onclick="changeLocation('/profile/<%= id%>')"
+    class="cr-button-small color-crtext font-mine mar-l-1"
+  >
+    <%= username %>
+  </button>
+</div>
+<% } %>
